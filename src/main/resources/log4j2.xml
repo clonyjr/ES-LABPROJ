@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+	<Appenders>
+		<Console name="Console">
+			<PatternLayout
+				pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+
+		<Kafka name="Kafka" topic="app-log">
+			<PatternLayout pattern="%date %message" />
+			<Property name="bootstrap.servers">localhost:9092</Property>
+		</Kafka>
+
+		<Async name="Async">
+			<AppenderRef ref="Kafka" />
+		</Async>
+
+	</Appenders>
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="Kafka" />
+		</Root>
+		<Logger name="app" level="debug" additivity="false">
+			<Appender-ref ref="Console"/>
+			<Appender-ref ref="Kafka"/>
+		</Logger>
+	</Loggers>
+</Configuration>
