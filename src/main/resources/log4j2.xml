@@ -8,7 +8,7 @@
 
 		<Kafka name="Kafka" topic="app-log">
 			<PatternLayout pattern="%date %message" />
-			<Property name="bootstrap.servers">localhost:9092</Property>
+			<Property name="bootstrap.servers">192.168.160.80:9092</Property>
 		</Kafka>
 
 		<Async name="Async">

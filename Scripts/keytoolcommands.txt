@@ -1,0 +1,17 @@
+#comando local
+sudo keytool -import -alias airlocation2 -keystore ../lib/security/cacerts -file <CAMINHO_CERTIFICADO>/opensky-networkorg.crt
+
+
+keytool -import -trustcacerts -alias myselfsignedcert -file /Users/me/Desktop/selfsignedcert.crt -keystore ./privateKeystore.jks
+keytool -importkeystore -srckeystore <java-home>/lib/security/cacerts -destkeystore ./privateKeystore.jks
+
+sudo keytool -import -trustcacerts -alias openskycert -keystore /Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/security/cacerts -file /Users/clonyjr/opensky-network.org.cer
+
+keytool -importkeystore -srckeystore /Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/security
+
+--WINDOWS
+keytool -import -trustcacerts -alias openskycert -keystore %JAVA_HOME%/jre/lib/security/cacerts -file <CAMINHO DO LOCAL ONDE ESTÁ O CERTIFICADO>/opensky-network.org.cer
+
+keytool -importkeystore -srckeystore /Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/security
+
+keytool -import -file /Users/clonyjr/Documents/Desenvolvimento/UA/workspaceUA/opensky-networkorg.crt -alias airlocation -keystore airLocationTrustStore
